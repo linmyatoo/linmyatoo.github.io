@@ -1,12 +1,7 @@
-body{
-	background-color: grey;
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
 }
-
-/*navigation*/
-
-
-
-
 
 /*top section*/
 
@@ -14,15 +9,6 @@ body{
 	text-align: center;
 	background-color: grey;
 }
-.my-photo{
-	width: 200px;
-	height: 200px;
-	border-radius: 100%;
-}
-
-
-
-
 /*about section*/
 
 #about-section{
@@ -31,3 +17,27 @@ body{
 	background-color: lightgray;
 }
 
+.info{
+	display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+	text-align: center;
+}
+
+footer {
+	background-color: #f2f2f2;
+	padding: 25px;
+}
+
+.my-photo{
+	width: 200px;
+	height: 200px;
+	border-radius: 100%;
+}
+ul{
+	text-align:left ;
+}
+
+div{
+	box-shadow: 0px 0px 0px 0px rgb(226, 218, 218);
+}
