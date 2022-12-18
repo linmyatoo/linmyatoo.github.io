@@ -1,0 +1,33 @@
+body{
+	background-color: grey;
+}
+
+/*navigation*/
+
+
+
+
+
+/*top section*/
+
+#top{
+	text-align: center;
+	background-color: grey;
+}
+.my-photo{
+	width: 200px;
+	height: 200px;
+	border-radius: 100%;
+}
+
+
+
+
+/*about section*/
+
+#about-section{
+	padding: 7% 15%;
+	text-align: center;
+	background-color: lightgray;
+}
+
