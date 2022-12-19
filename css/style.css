@@ -17,11 +17,11 @@
 	background-color: lightgray;
 }
 
-.info{
-	display: flex;
+.info {
+    display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-	text-align: center;
+    text-align: center;
 }
 
 footer {
