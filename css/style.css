@@ -1,14 +1,15 @@
 .navbar {
 	margin-bottom: 0;
 	border-radius: 0;
+	width: 100%;
 }
 
 /*top section*/
 
-#top{
+/* #top{
 	text-align: center;
 	background-color: grey;
-}
+} */
 /*about section*/
 
 #about-section{
@@ -55,18 +56,28 @@
     text-decoration: none;
 	background-color: rgb(207, 214, 240);
 	font-size: 1.1em;
-	border-radius: 50%;
-	margin: 0 0.5rem;
-	padding: 0.4em;
+	border-radius: 100%;
+	margin: 0 0.3rem;
+	padding: 0.7em;
+}
+
+.social a:hover{
+	font-size: 1.3em;
+	box-shadow: 1px 1px 1px 1px rgb(159, 161, 167);
 }
 
 .resume a {
 	color: #2d455f;
 	text-decoration: none;
-	background-color: rgb(110, 145, 241);
+	background-color: rgb(207, 214, 240);
 	font-size: 1.5em;
 	padding: 0.5em;
-	border-radius: 10%;
+	border-radius: 7%;
+}
+
+.resume a:hover{
+	font-size: 1.7em;
+	box-shadow: 1px 1px 1px 1px rgb(37, 37, 38);
 }
 
 footer {
@@ -79,6 +90,7 @@ footer {
 	width: 200px;
 	height: 200px;
 	border-radius: 100%;
+	margin-top: 3em;
 }
 .linkin{
 	width: 30px;
@@ -93,4 +105,5 @@ ul{
 	background-color: #eff2f5;
 	/* box-shadow: 0px 0px 0px 0.5px rgb(166, 168, 169); */
 	padding: 1em;
+	border-radius: 1%;
 } 
