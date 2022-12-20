@@ -24,6 +24,18 @@
     text-align: center;
 }
 
+
+.social a {
+    color: #2d455f;
+    text-decoration: none;
+	background-color: rgb(207, 214, 240);
+	font-size: 1.1em;
+	border-radius: 50%;
+	margin: 0 0.5rem;
+	padding: 0.4em;
+}
+
+
 footer {
 	background-color: #f2f2f2;
 	padding: 25px;
@@ -34,10 +46,16 @@ footer {
 	height: 200px;
 	border-radius: 100%;
 }
+.linkin{
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+}
 ul{
 	text-align:left ;
 }
 
-div{
-	box-shadow: 0px 0px 0px 0px rgb(226, 218, 218);
-}
+/* div{
+	background-color: #f2f2f2;
+	box-shadow: 0px 1px 0px 0px rgb(178, 183, 185);
+} */
