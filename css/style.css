@@ -24,7 +24,32 @@
     text-align: center;
 }
 
+.allinfo{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
 
+.info_one{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	text-align: right;
+}
+
+.infobetween{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	text-align: center;
+}
+
+.info_two{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	text-align: left;
+}
 .social a {
     color: #2d455f;
     text-decoration: none;
@@ -65,6 +90,7 @@ ul{
 }
 
 .box{
-	background-color: #e9ecef;
-	box-shadow: 2px 1px 2px 1px rgb(166, 168, 169);
+	background-color: #eff2f5;
+	/* box-shadow: 0px 0px 0px 0.5px rgb(166, 168, 169); */
+	padding: 1em;
 } 
