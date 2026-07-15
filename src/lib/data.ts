@@ -26,7 +26,7 @@ export const personalInfo = {
   github: "https://github.com/linmyatoo",
   linkedin: "https://www.linkedin.com/in/lin-myat-oo-1364b6255",
   resumeUrl: "/pdf/lmocv.pdf",
-  profileImage: "/images/profile.jpg",
+  profileImage: "/images/profile.jpeg",
   bio: `I'm a passionate Software Engineer with a deep interest in Artificial Intelligence, 
 Machine Learning, and building scalable backend systems. With a strong foundation in 
 computer engineering and software development, I thrive on solving complex problems 

@@ -117,6 +117,7 @@ export default function Hero() {
                   fill
                   className="object-cover"
                   priority
+                  sizes="(max-width: 768px) 192px, (max-width: 1024px) 224px, 256px"
                 />
               </div>
               {/* Decorative orbit dots */}
