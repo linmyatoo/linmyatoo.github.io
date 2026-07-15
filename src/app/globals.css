@@ -499,9 +499,9 @@ body::before {
 }
 
 /* Visible state (all variants) */
-.scroll-reveal--visible {
+.scroll-reveal.scroll-reveal--visible {
   opacity: 1;
-  transform: translate(0, 0) scale(1);
+  transform: translate(0, 0) scale(1) !important;
 }
 
 /* ═══════════════════════════════════════════
