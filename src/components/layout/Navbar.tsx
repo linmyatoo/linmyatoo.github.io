@@ -75,7 +75,7 @@ export default function Navbar() {
             >
               <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20 shadow-sm group-hover:border-primary group-hover:scale-105 transition-all flex items-center justify-center bg-white shrink-0">
                 <Image
-                  src="/images/lmo1.jpeg"
+                  src="/images/lmo1.webp"
                   alt="Lin Myat Oo"
                   width={40}
                   height={40}

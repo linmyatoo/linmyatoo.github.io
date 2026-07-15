@@ -26,7 +26,7 @@ export const personalInfo = {
   github: "https://github.com/linmyatoo",
   linkedin: "https://www.linkedin.com/in/lin-myat-oo-1364b6255",
   resumeUrl: "/pdf/lmocv.pdf",
-  profileImage: "/images/profile.jpeg",
+  profileImage: "/images/profile.webp",
   bio: `I'm a passionate Software Engineer with a deep interest in Artificial Intelligence, 
 Machine Learning, and building scalable backend systems. With a strong foundation in 
 computer engineering and software development, I thrive on solving complex problems 
@@ -251,7 +251,7 @@ export const projects: Project[] = [
     title: "Camera Dolly Stabilizer",
     description:
       "An IoT-powered robot designed to hold and stabilize cameras for capturing video and photos in hazardous environments. Controlled via RC controller with gyroscope-based stabilization.",
-    image: "/images/project4.JPG",
+    image: "/images/project4.webp",
     technologies: ["IoT", "Embedded Systems", "Gyroscope", "RC Control"],
     category: "hardware",
     featured: true,
@@ -260,7 +260,7 @@ export const projects: Project[] = [
     title: "Robotic Arm With Carrier",
     description:
       "Bluetooth-controlled robotic arm and carrier system using an Android application and embedded systems for precise manipulation and transport.",
-    image: "/images/project1.JPG",
+    image: "/images/project1.webp",
     technologies: ["Embedded Systems", "Bluetooth", "Android", "Arduino"],
     category: "hardware",
     featured: true,
@@ -269,7 +269,7 @@ export const projects: Project[] = [
     title: "Guardian Sumo Robot",
     description:
       "A competition-grade sumo robot capable of picking objects, racing, and engaging in robot battles. First runner-up at Clash of Robot 2018.",
-    image: "/images/project2.JPG",
+    image: "/images/project2.webp",
     technologies: ["Embedded Systems", "Robotics", "RF Control"],
     category: "hardware",
     featured: true,
@@ -278,7 +278,7 @@ export const projects: Project[] = [
     title: "Guardian Pickup Robot",
     description:
       "Precision robot arm system designed for automated object retrieval and storage operations.",
-    image: "/images/project3.JPG",
+    image: "/images/project3.webp",
     technologies: ["Robotics", "Embedded Systems", "Automation"],
     category: "hardware",
     featured: true,
@@ -292,42 +292,42 @@ export const projects: Project[] = [
 export const activities: Activity[] = [
   {
     title: "Mentor at NOW Maker Space",
-    image: "/images/nowmaker.JPG",
+    image: "/images/nowmaker.webp",
     description: "Senior mentor guiding students in robotics and electronics",
   },
   {
     title: "Clash Of Robot 2018 — Competitor",
-    image: "/images/cor1.JPG",
+    image: "/images/cor1.webp",
     description: "Competed with Guardian Sumo Robot",
   },
   {
     title: "Clash Of Robot 2019 — Organizer",
-    image: "/images/cor2.jpg",
+    image: "/images/cor2.webp",
     description: "Junior organizer for the annual competition",
   },
   {
     title: "World Robot Game Myanmar 2020",
-    image: "/images/wrg.jpg",
+    image: "/images/wrg.webp",
     description: "Event organizer for international robotics competition",
   },
   {
     title: "Knowledge Sharing for Children",
-    image: "/images/wrg1.jpg",
+    image: "/images/wrg1.webp",
     description: "Teaching robotics and STEM fundamentals to young students",
   },
   {
     title: "Myanmar Red Cross Brigade",
-    image: "/images/rc.jpg",
+    image: "/images/rc.webp",
     description: "Platoon Commander at UT-YCC Branch",
   },
   {
     title: "Photography Club President",
-    image: "/images/pc2.JPG",
+    image: "/images/pc2.webp",
     description: "Led the university photography club",
   },
   {
     title: "SUIC Summer Programme 2018",
-    image: "/images/suic.jpeg",
+    image: "/images/suic.webp",
     description:
       "International Summer Programme hosted by Silpakorn University International College",
   },

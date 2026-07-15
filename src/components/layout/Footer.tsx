@@ -24,7 +24,7 @@ export default function Footer() {
             <div className="flex items-center">
               <div className="w-10 h-10 rounded-full overflow-hidden border border-slate-200 shadow-sm flex items-center justify-center bg-white shrink-0">
                 <Image
-                  src="/images/lmo1.jpeg"
+                  src="/images/lmo1.webp"
                   alt="Lin Myat Oo"
                   width={40}
                   height={40}
