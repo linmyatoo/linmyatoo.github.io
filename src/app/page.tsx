@@ -11,28 +11,51 @@ const Experience = dynamic(() => import("@/components/sections/Experience"));
 const Certifications = dynamic(() => import("@/components/sections/Certifications"));
 const Contact = dynamic(() => import("@/components/sections/Contact"));
 
+import LazySectionWrapper from "@/components/ui/LazySectionWrapper";
+
 export default function Home() {
   return (
     <>
       <Navbar />
       <main>
         <Hero />
-        <div className="section-divider" />
-        <About />
-        <div className="section-divider" />
-        <TechStack />
-        <div className="section-divider" />
-        <Skills />
-        <div className="section-divider" />
-        <Projects />
-        <div className="section-divider" />
-        <Experience />
-        <div className="section-divider" />
-        <Certifications />
-        <div className="section-divider" />
-        {/* <Blog />
-        <div className="section-divider" /> */}
-        <Contact />
+        
+        <LazySectionWrapper height="80vh">
+          <div className="section-divider" />
+          <About />
+        </LazySectionWrapper>
+        
+        <LazySectionWrapper height="60vh">
+          <div className="section-divider" />
+          <TechStack />
+        </LazySectionWrapper>
+        
+        <LazySectionWrapper height="60vh">
+          <div className="section-divider" />
+          <Skills />
+        </LazySectionWrapper>
+        
+        <LazySectionWrapper height="100vh">
+          <div className="section-divider" />
+          <Projects />
+        </LazySectionWrapper>
+        
+        <LazySectionWrapper height="80vh">
+          <div className="section-divider" />
+          <Experience />
+        </LazySectionWrapper>
+        
+        <LazySectionWrapper height="100vh">
+          <div className="section-divider" />
+          <Certifications />
+        </LazySectionWrapper>
+        
+        <LazySectionWrapper height="80vh">
+          <div className="section-divider" />
+          {/* <Blog />
+          <div className="section-divider" /> */}
+          <Contact />
+        </LazySectionWrapper>
       </main>
       <Footer />
     </>

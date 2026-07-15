@@ -445,6 +445,30 @@ body::before {
    (replaces framer-motion for below-fold)
    ═══════════════════════════════════════════ */
 
+/* ═══════════════════════════════════════════
+   Mount Animations (replaces framer-motion for Hero)
+   ═══════════════════════════════════════════ */
+
+@keyframes mountFadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mountScale {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-mount-fade-up {
+  opacity: 0;
+  animation: mountFadeUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-mount-scale {
+  opacity: 0;
+  animation: mountScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
 .scroll-reveal {
   will-change: opacity, transform;
   transition-property: opacity, transform;

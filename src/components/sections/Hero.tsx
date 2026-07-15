@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ArrowDown, Download, Send } from "lucide-react";
 import Image from "next/image";
 import TypingEffect from "@/components/ui/TypingEffect";
@@ -31,45 +30,37 @@ export default function Hero() {
           {/* Text Content — Left */}
           <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
             {/* Name */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight font-heading text-slate-900"
+            <h1
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight font-heading text-slate-900 animate-mount-fade-up"
+              style={{ animationDelay: "0.3s" }}
             >
               Hi, I&apos;m{" "}
               <span className="gradient-text">{personalInfo.name}</span>
-            </motion.h1>
+            </h1>
 
             {/* Typing Effect */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-xl md:text-2xl text-slate-600 font-semibold mb-6 h-8 font-mono"
+            <div
+              className="text-xl md:text-2xl text-slate-600 font-semibold mb-6 h-8 font-mono animate-mount-fade-up"
+              style={{ animationDelay: "0.4s" }}
             >
               <TypingEffect strings={typingRoles} className="text-primary" />
-            </motion.div>
+            </div>
 
             {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-slate-600 text-lg max-w-xl mb-10 leading-relaxed lg:mx-0 mx-auto font-normal"
+            <p
+              className="text-slate-600 text-lg max-w-xl mb-10 leading-relaxed lg:mx-0 mx-auto font-normal animate-mount-fade-up"
+              style={{ animationDelay: "0.5s" }}
             >
               {personalInfo.subtitle}. Passionate about{" "}
               <span className="text-primary font-semibold">AI & Machine Learning</span>,{" "}
               <span className="text-accent font-semibold">DevOps & Cloud Architecture</span>, and
               building resilient systems that scale.
-            </motion.p>
+            </p>
 
             {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-4"
+            <div
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-4 animate-mount-fade-up"
+              style={{ animationDelay: "0.6s" }}
             >
               <Button
                 href="#projects"
@@ -96,15 +87,13 @@ export default function Hero() {
               >
                 Contact Me
               </Button>
-            </motion.div>
+            </div>
           </div>
 
           {/* Profile Photo — Right */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-            className="relative order-1 lg:order-2 shrink-0"
+          <div
+            className="relative order-1 lg:order-2 shrink-0 animate-mount-scale"
+            style={{ animationDelay: "0.1s" }}
           >
             <div className="relative">
               {/* Soft glow ring */}
@@ -124,25 +113,21 @@ export default function Hero() {
               <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-amber-500 shadow-lg shadow-amber-500/30 animate-float" />
               <div className="absolute -bottom-1 -left-1 w-3.5 h-3.5 rounded-full bg-blue-600 shadow-lg shadow-blue-600/30 animate-float" style={{ animationDelay: "1s" }} />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      <div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-mount-fade-up"
+        style={{ animationDelay: "1.2s" }}
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 rounded-full border-2 border-slate-300 flex justify-center pt-2"
+        <div
+          className="w-6 h-10 rounded-full border-2 border-slate-300 flex justify-center pt-2 animate-bounce"
         >
           <div className="w-1 h-2 bg-slate-400 rounded-full" />
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

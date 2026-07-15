@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+
 import { Clock, ArrowRight, Sparkles, Cpu, Code2, Terminal, Smartphone, Cloud, X, BookOpen, Share2, Calendar } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import GlassCard from "@/components/ui/GlassCard";
@@ -270,24 +270,16 @@ export default function Blog() {
         </div>
 
         {/* Interactive Article Quick-View Modal */}
-        <AnimatePresence>
-          {selectedPost && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setSelectedPost(null)}
-                className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm"
-              />
+        {selectedPost && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+            <div
+              onClick={() => setSelectedPost(null)}
+              className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity duration-300"
+            />
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                className="relative w-full max-w-3xl max-h-[88vh] overflow-y-auto bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 md:p-10 z-10 shadow-2xl"
-              >
+            <div
+              className="relative w-full max-w-3xl max-h-[88vh] overflow-y-auto bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 md:p-10 z-10 shadow-2xl transition-all duration-300 scale-100 opacity-100"
+            >
                 <button
                   onClick={() => setSelectedPost(null)}
                   className="absolute top-6 right-6 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition-colors cursor-pointer"
@@ -380,11 +372,10 @@ export default function Blog() {
                     </Button>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           )}
-        </AnimatePresence>
-      </div>
+        </div>
     </section>
   );
 }
