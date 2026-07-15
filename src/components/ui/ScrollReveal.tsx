@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { motion, useInView } from "framer-motion";
+import { useEffect, useState } from "react";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -12,54 +12,55 @@ interface ScrollRevealProps {
   once?: boolean;
 }
 
-const variants = {
-  "fade-up": {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0 },
-  },
-  "fade-in": {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  },
-  "slide-left": {
-    hidden: { opacity: 0, x: -60 },
-    visible: { opacity: 1, x: 0 },
-  },
-  "slide-right": {
-    hidden: { opacity: 0, x: 60 },
-    visible: { opacity: 1, x: 0 },
-  },
-  scale: {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: { opacity: 1, scale: 1 },
-  },
-};
-
+/**
+ * Lightweight scroll reveal using CSS animations + IntersectionObserver.
+ * Replaces the old framer-motion based implementation to cut ~150-200KB
+ * of JavaScript from the bundle for below-fold sections.
+ */
 export default function ScrollReveal({
   children,
   className,
   variant = "fade-up",
   delay = 0,
-  duration = 0.6,
   once = true,
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once, margin: "-50px" });
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Respect prefers-reduced-motion
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) {
+      setIsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          if (once) observer.unobserve(el);
+        } else if (!once) {
+          setIsVisible(false);
+        }
+      },
+      { rootMargin: "-50px" }
+    );
+
+    observer.observe(el);
+    return () => observer.unobserve(el);
+  }, [once]);
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={variants[variant]}
-      transition={{
-        duration,
-        delay,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      }}
-      className={className}
+      className={`scroll-reveal scroll-reveal--${variant} ${isVisible ? "scroll-reveal--visible" : ""} ${className || ""}`}
+      style={{ transitionDelay: `${delay}s` }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
