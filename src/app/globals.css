@@ -1,0 +1,291 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #09090B;
+  --color-card: #18181B;
+  --color-card-hover: #27272A;
+  --color-primary: #3B82F6;
+  --color-primary-dark: #2563EB;
+  --color-accent: #22D3EE;
+  --color-success: #10B981;
+  --color-text: #FAFAFA;
+  --color-text-muted: #A1A1AA;
+  --color-border: #27272A;
+  --color-border-hover: #3F3F46;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+/* ═══════════════════════════════════════════
+   Base Styles
+   ═══════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom selection color */
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: #FAFAFA;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3F3F46;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #52525B;
+}
+
+/* ═══════════════════════════════════════════
+   Glassmorphism Utilities
+   ═══════════════════════════════════════════ */
+
+.glass {
+  background: rgba(24, 24, 27, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(63, 63, 70, 0.4);
+}
+
+.glass-strong {
+  background: rgba(24, 24, 27, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(63, 63, 70, 0.5);
+}
+
+.glass-subtle {
+  background: rgba(24, 24, 27, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(63, 63, 70, 0.2);
+}
+
+/* ═══════════════════════════════════════════
+   Gradient Utilities
+   ═══════════════════════════════════════════ */
+
+.gradient-text {
+  background: linear-gradient(135deg, #3B82F6 0%, #22D3EE 50%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #3B82F6 0%, #22D3EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(34, 211, 238, 0.5));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════
+   Animated Background (Hero)
+   ═══════════════════════════════════════════ */
+
+@keyframes gradient-shift {
+  0%, 100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  25% {
+    transform: translate(10%, -10%) scale(1.1);
+  }
+  50% {
+    transform: translate(-5%, 15%) scale(0.95);
+  }
+  75% {
+    transform: translate(-15%, -5%) scale(1.05);
+  }
+}
+
+@keyframes gradient-shift-reverse {
+  0%, 100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  25% {
+    transform: translate(-10%, 10%) scale(1.05);
+  }
+  50% {
+    transform: translate(5%, -15%) scale(1.1);
+  }
+  75% {
+    transform: translate(15%, 5%) scale(0.95);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.animate-gradient-shift {
+  animation: gradient-shift 15s ease-in-out infinite;
+}
+
+.animate-gradient-shift-reverse {
+  animation: gradient-shift-reverse 18s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════
+   Card Hover Effects
+   ═══════════════════════════════════════════ */
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* ═══════════════════════════════════════════
+   Glow Effects
+   ═══════════════════════════════════════════ */
+
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 60px rgba(59, 130, 246, 0.1);
+}
+
+.glow-accent {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.3), 0 0 60px rgba(34, 211, 238, 0.1);
+}
+
+/* ═══════════════════════════════════════════
+   Grid Dot Pattern
+   ═══════════════════════════════════════════ */
+
+.dot-pattern {
+  background-image: radial-gradient(rgba(161, 161, 170, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ═══════════════════════════════════════════
+   Timeline
+   ═══════════════════════════════════════════ */
+
+.timeline-line {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #3B82F6 10%,
+    #22D3EE 50%,
+    #3B82F6 90%,
+    transparent
+  );
+}
+
+/* ═══════════════════════════════════════════
+   Skill Bar Animation
+   ═══════════════════════════════════════════ */
+
+@keyframes fill-bar {
+  from {
+    width: 0%;
+  }
+}
+
+.skill-bar-fill {
+  animation: fill-bar 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ═══════════════════════════════════════════
+   Typing Cursor
+   ═══════════════════════════════════════════ */
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor::after {
+  content: "|";
+  animation: blink-cursor 1s step-end infinite;
+  color: #3B82F6;
+  font-weight: 300;
+  margin-left: 2px;
+}
+
+/* ═══════════════════════════════════════════
+   Section Divider
+   ═══════════════════════════════════════════ */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.3) 20%,
+    rgba(34, 211, 238, 0.3) 50%,
+    rgba(59, 130, 246, 0.3) 80%,
+    transparent
+  );
+}
