@@ -7,7 +7,7 @@ import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
 import Experience from "@/components/sections/Experience";
 import Certifications from "@/components/sections/Certifications";
-import Blog from "@/components/sections/Blog";
+// import Blog from "@/components/sections/Blog";
 import Contact from "@/components/sections/Contact";
 
 export default function Home() {
@@ -29,8 +29,8 @@ export default function Home() {
         <div className="section-divider" />
         <Certifications />
         <div className="section-divider" />
-        <Blog />
-        <div className="section-divider" />
+        {/* <Blog />
+        <div className="section-divider" /> */}
         <Contact />
       </main>
       <Footer />

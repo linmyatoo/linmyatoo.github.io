@@ -29,12 +29,19 @@ export default function Projects() {
   const hardwareCount = useMemo(() => projects.filter((p) => p.category === "hardware").length, []);
 
   return (
-    <section id="projects" className="py-24 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-24 relative overflow-hidden">
+      {/* Eye-catching ambient background & grid pattern */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-blue-500/8 via-transparent to-amber-500/5 pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-blue-500/12 via-indigo-500/8 to-transparent blur-[120px] -z-10 pointer-events-none animate-gradient-shift" />
+      <div className="absolute bottom-1/4 right-1/4 w-[480px] h-[480px] rounded-full bg-gradient-to-bl from-teal-500/12 via-blue-500/8 to-transparent blur-[110px] -z-10 pointer-events-none animate-gradient-shift-reverse" />
+      <div className="absolute inset-0 grid-lines opacity-60 pointer-events-none -z-10" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
           <SectionHeading
             title="Featured Projects"
-            subtitle="Explore my open-source GitHub repositories, cross-platform mobile apps, AI models, and robotics systems"
+            subtitle="Explore my open-source repositories, AI pipelines, cross-platform mobile apps, and robotics systems"
+            align="left"
           />
         </ScrollReveal>
 
@@ -43,10 +50,10 @@ export default function Projects() {
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
             <button
               onClick={() => setActiveCategory("all")}
-              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer ${
                 activeCategory === "all"
-                  ? "bg-primary text-white shadow-lg shadow-primary/25 scale-105"
-                  : "bg-card/70 text-text-muted hover:text-text hover:bg-card border border-border/50"
+                  ? "bg-primary text-white font-semibold shadow-md shadow-primary/20 scale-105"
+                  : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200 shadow-sm font-medium"
               }`}
             >
               <Sparkles size={15} />
@@ -54,122 +61,137 @@ export default function Projects() {
             </button>
             <button
               onClick={() => setActiveCategory("software")}
-              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer ${
                 activeCategory === "software"
-                  ? "bg-blue-600 text-white shadow-lg shadow-blue-600/25 scale-105"
-                  : "bg-card/70 text-text-muted hover:text-text hover:bg-card border border-border/50"
+                  ? "bg-blue-600 text-white font-semibold shadow-md shadow-blue-600/20 scale-105"
+                  : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200 shadow-sm font-medium"
               }`}
             >
-              <Terminal size={15} className={activeCategory === "software" ? "text-white" : "text-blue-400"} />
+              <Terminal size={15} className={activeCategory === "software" ? "text-white" : "text-blue-600"} />
               Software & Web ({softwareCount})
             </button>
             <button
               onClick={() => setActiveCategory("mobile")}
-              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer ${
                 activeCategory === "mobile"
-                  ? "bg-purple-600 text-white shadow-lg shadow-purple-600/25 scale-105"
-                  : "bg-card/70 text-text-muted hover:text-text hover:bg-card border border-border/50"
+                  ? "bg-indigo-600 text-white font-semibold shadow-md shadow-indigo-600/20 scale-105"
+                  : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200 shadow-sm font-medium"
               }`}
             >
-              <Smartphone size={15} className={activeCategory === "mobile" ? "text-white" : "text-purple-400"} />
+              <Smartphone size={15} className={activeCategory === "mobile" ? "text-white" : "text-indigo-600"} />
               Mobile Apps ({mobileCount})
             </button>
             <button
               onClick={() => setActiveCategory("ai")}
-              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer ${
                 activeCategory === "ai"
-                  ? "bg-accent text-black shadow-lg shadow-accent/25 scale-105"
-                  : "bg-card/70 text-text-muted hover:text-text hover:bg-card border border-border/50"
+                  ? "bg-teal-600 text-white font-semibold shadow-md shadow-teal-600/20 scale-105"
+                  : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200 shadow-sm font-medium"
               }`}
             >
-              <Code2 size={15} className={activeCategory === "ai" ? "text-black" : "text-accent"} />
+              <Code2 size={15} className={activeCategory === "ai" ? "text-white" : "text-teal-600"} />
               AI & Machine Learning ({aiCount})
             </button>
             <button
               onClick={() => setActiveCategory("hardware")}
-              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer ${
                 activeCategory === "hardware"
-                  ? "bg-success text-black shadow-lg shadow-success/25 scale-105"
-                  : "bg-card/70 text-text-muted hover:text-text hover:bg-card border border-border/50"
+                  ? "bg-amber-600 text-white font-semibold shadow-md shadow-amber-600/20 scale-105"
+                  : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200 shadow-sm font-medium"
               }`}
             >
-              <Cpu size={15} className={activeCategory === "hardware" ? "text-black" : "text-success"} />
+              <Cpu size={15} className={activeCategory === "hardware" ? "text-white" : "text-amber-600"} />
               Robotics & IoT ({hardwareCount})
             </button>
           </div>
         </ScrollReveal>
 
-        {/* Project Cards Grid */}
-        <div className="grid md:grid-cols-2 gap-6 mb-24">
+        {/* Project Cards — Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-24">
           {filteredProjects.map((project, index) => (
-            <ScrollReveal key={project.title} delay={index * 0.08} variant="fade-up">
+            <ScrollReveal
+              key={project.title}
+              delay={index * 0.08}
+              variant="fade-up"
+            >
               <GlassCard className="overflow-hidden group p-0 h-full flex flex-col justify-between">
                 <div>
-                  {/* Project Banner Image or Code Header */}
+                  {/* Code-editor style header bar */}
                   {project.image ? (
-                    <div className="relative h-52 overflow-hidden">
+                    <div className="relative h-52 overflow-hidden border-b border-slate-200">
                       <Image
                         src={project.image}
                         alt={project.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                       <div className="absolute top-3 right-3 z-10">
-                        <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-black/60 text-success border border-success/30 backdrop-blur-md flex items-center gap-1.5">
-                          <Cpu size={12} />
+                        <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-white/90 text-emerald-800 border border-emerald-200 shadow-sm backdrop-blur-md flex items-center gap-1.5">
+                          <Cpu size={12} className="text-emerald-600" />
                           Robotics Engineering
                         </span>
                       </div>
                     </div>
                   ) : (
-                    <div className="relative h-52 overflow-hidden bg-gradient-to-br from-card via-primary/10 to-accent/10 border-b border-border/40 flex flex-col justify-between p-6 group-hover:from-card group-hover:via-primary/20 transition-all duration-500">
-                      <div className="flex items-center justify-between">
-                        <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-background/80 text-primary border border-primary/30 backdrop-blur-md flex items-center gap-1.5">
-                          <FolderGit2 size={12} className="text-accent" />
-                          {project.category === "ai"
-                            ? "AI & Computer Vision"
-                            : project.category === "mobile"
-                            ? "Mobile Application"
-                            : "Open Source Repository"}
+                    <div className="relative overflow-hidden bg-slate-50/80 border-b border-slate-200 group-hover:bg-blue-50/30 transition-all duration-500">
+                      {/* Code editor window dots */}
+                      <div className="px-5 py-3 flex items-center gap-2 border-b border-slate-200/80 bg-slate-100/60">
+                        <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                        <div className="w-3 h-3 rounded-full bg-amber-500/80" />
+                        <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
+                        <span className="ml-3 text-[11px] font-mono font-semibold text-slate-500">
+                          {project.technologies[0]}
                         </span>
-                        {typeof project.stars === "number" && project.stars > 0 && (
-                          <span className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 flex items-center gap-1">
-                            <Star size={11} />
-                            {project.stars}
-                          </span>
-                        )}
                       </div>
 
-                      <div className="flex items-center justify-center my-auto">
-                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/30 flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform duration-500">
-                          {project.category === "ai" ? (
-                            <Code2 size={32} className="text-accent" />
-                          ) : project.category === "mobile" ? (
-                            <Smartphone size={32} className="text-purple-400" />
-                          ) : (
-                            <Terminal size={32} className="text-primary" />
+                      <div className="p-6 pb-4">
+                        <div className="flex items-center justify-between mb-4">
+                          <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-white text-primary border border-slate-200 shadow-sm flex items-center gap-1.5">
+                            <FolderGit2 size={12} className="text-accent" />
+                            {project.category === "ai"
+                              ? "AI & Computer Vision"
+                              : project.category === "mobile"
+                              ? "Mobile Application"
+                              : "Open Source Repository"}
+                          </span>
+                          {typeof project.stars === "number" && project.stars > 0 && (
+                            <span className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-amber-50 text-amber-700 border border-amber-200 flex items-center gap-1">
+                              <Star size={11} className="text-amber-500 fill-amber-500" />
+                              {project.stars}
+                            </span>
                           )}
                         </div>
-                      </div>
 
-                      <div className="flex items-center justify-between text-xs text-text-muted/70">
-                        <span className="font-mono">
-                          {project.github
-                            ? project.github.replace("https://", "").replace("http://", "").split("/").slice(0, 2).join("/")
-                            : "github.com/linmyatoo"}
-                        </span>
-                        <span>{project.technologies[0]}</span>
+                        <div className="flex items-center justify-center py-2">
+                          <div className="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:border-blue-400 transition-all duration-500">
+                            {project.category === "ai" ? (
+                              <Code2 size={28} className="text-teal-600" />
+                            ) : project.category === "mobile" ? (
+                              <Smartphone size={28} className="text-indigo-600" />
+                            ) : (
+                              <Terminal size={28} className="text-primary" />
+                            )}
+                          </div>
+                        </div>
+
+                        <div className="flex items-center justify-between text-xs text-slate-500 mt-4">
+                          <span className="font-mono font-medium">
+                            {project.github
+                              ? project.github.replace("https://", "").replace("http://", "").split("/").slice(0, 2).join("/")
+                              : "github.com/linmyatoo"}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   )}
 
                   {/* Project Info */}
                   <div className="p-6">
-                    <h3 className="text-lg sm:text-xl font-bold text-text mb-2.5 group-hover:text-primary transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2.5 group-hover:text-primary transition-colors font-heading">
                       {project.title}
                     </h3>
-                    <p className="text-text-muted text-sm mb-5 leading-relaxed">
+                    <p className="text-slate-600 text-sm mb-5 leading-relaxed">
                       {project.description}
                     </p>
 
@@ -207,7 +229,7 @@ export default function Projects() {
                     </Button>
                   )}
                   {!project.github && !project.liveDemo && (
-                    <span className="text-xs text-text-muted/60 font-medium py-1">
+                    <span className="text-xs text-slate-500 font-medium py-1">
                       University Exhibition / Hardware Prototype
                     </span>
                   )}
@@ -221,28 +243,28 @@ export default function Projects() {
         <ScrollReveal>
           <SectionHeading
             title="Activities & Leadership"
-            subtitle="Community involvement, organizations, and extracurricular activities"
+            subtitle="Community involvement, engineering leadership, and academic organizations"
           />
         </ScrollReveal>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {activities.map((activity, index) => (
             <ScrollReveal key={activity.title} variant="scale" delay={index * 0.05}>
-              <div className="glass rounded-xl overflow-hidden card-hover gradient-border group">
-                <div className="relative h-40 overflow-hidden">
+              <div className="bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden card-hover group">
+                <div className="relative h-40 overflow-hidden border-b border-slate-100">
                   <Image
                     src={activity.image}
                     alt={activity.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
                 <div className="p-4">
-                  <h4 className="text-sm font-semibold text-text mb-1">
+                  <h4 className="text-sm font-bold text-slate-900 mb-1 font-heading">
                     {activity.title}
                   </h4>
-                  <p className="text-xs text-text-muted">
+                  <p className="text-xs text-slate-600">
                     {activity.description}
                   </p>
                 </div>

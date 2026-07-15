@@ -18,7 +18,7 @@ export default function GlassCard({
   return (
     <div
       className={cn(
-        "glass rounded-2xl p-6",
+        "glass rounded-2xl p-6 relative overflow-hidden",
         hover && "card-hover gradient-border",
         className
       )}

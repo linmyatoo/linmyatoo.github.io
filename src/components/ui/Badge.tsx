@@ -13,11 +13,11 @@ export default function Badge({
 }: BadgeProps) {
   const variants = {
     default:
-      "bg-card text-text-muted border border-border",
+      "bg-slate-100/80 text-slate-700 border border-slate-200/80 font-medium",
     outline:
-      "bg-transparent text-primary border border-primary/30",
+      "bg-blue-50/60 text-blue-700 border border-blue-200 font-semibold",
     gradient:
-      "bg-gradient-to-r from-primary/20 to-accent/20 text-accent border border-accent/20",
+      "bg-gradient-to-r from-blue-50 to-teal-50 text-teal-800 border border-teal-200/80 font-semibold",
   };
 
   return (

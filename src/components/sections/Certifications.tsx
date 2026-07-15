@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { ShieldCheck, Trophy, ExternalLink, Award, Sparkles, Filter, CheckCircle2, Clock } from "lucide-react";
+import { ShieldCheck, Trophy, ExternalLink, Award, Sparkles, CheckCircle2, Clock } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import GlassCard from "@/components/ui/GlassCard";
 import ScrollReveal from "@/components/ui/ScrollReveal";
@@ -11,46 +11,35 @@ import { LinkedinIcon } from "@/components/ui/Icons";
 
 type TabFilter = "all" | "award" | "certification";
 
-const filterSkills = [
-  "All Skills",
-  "Robotics",
-  "Cloud Architecture",
-  "Deep Learning",
-  "Embedded Systems",
-  "DevOps",
-  "IoT",
-  "Android",
-];
-
 export default function Certifications() {
   const [activeTab, setActiveTab] = useState<TabFilter>("all");
-  const [selectedSkill, setSelectedSkill] = useState("All Skills");
 
   const filteredItems = useMemo(() => {
     return certifications.filter((item) => {
-      const matchesTab =
+      return (
         activeTab === "all" ||
         item.category === activeTab ||
-        (!item.category && activeTab === "certification");
-
-      const matchesSkill =
-        selectedSkill === "All Skills" ||
-        (item.skills && item.skills.some((s) => s.toLowerCase().includes(selectedSkill.toLowerCase())));
-
-      return matchesTab && matchesSkill;
+        (!item.category && activeTab === "certification")
+      );
     });
-  }, [activeTab, selectedSkill]);
+  }, [activeTab]);
 
   const awardsCount = useMemo(() => certifications.filter((c) => c.category === "award").length, []);
   const certsCount = useMemo(() => certifications.filter((c) => c.category !== "award").length, []);
 
   return (
-    <section id="certifications" className="py-24 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="certifications" className="py-24 relative overflow-hidden">
+      {/* Eye-catching trophy amber & tech blue ambient background */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-bl from-amber-500/8 via-transparent to-blue-500/8 pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-[450px] h-[450px] rounded-full bg-amber-500/10 blur-[110px] -z-10 pointer-events-none animate-float" />
+      <div className="absolute bottom-1/4 left-1/4 w-[450px] h-[450px] rounded-full bg-blue-500/10 blur-[110px] -z-10 pointer-events-none animate-gradient-shift" />
+      <div className="absolute inset-0 dot-pattern opacity-40 pointer-events-none -z-10" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
           <SectionHeading
             title="Certifications & Honors"
-            subtitle="National competition awards, engineering honors, and professional industry credentials"
+            subtitle="National engineering honors, robotics competitions, and verified professional cloud & AI credentials"
           />
         </ScrollReveal>
 
@@ -58,69 +47,38 @@ export default function Certifications() {
         <ScrollReveal delay={0.1}>
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-8">
             <button
-              onClick={() => {
-                setActiveTab("all");
-                setSelectedSkill("All Skills");
-              }}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+              onClick={() => setActiveTab("all")}
+              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer ${
                 activeTab === "all"
-                  ? "bg-primary text-white shadow-lg shadow-primary/25 scale-105"
-                  : "bg-card/70 text-text-muted hover:text-text hover:bg-card border border-border/50"
+                  ? "bg-primary text-white font-semibold shadow-md shadow-primary/20 scale-105"
+                  : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200 shadow-sm font-medium"
               }`}
             >
               <Sparkles size={15} />
               All Achievements ({certifications.length})
             </button>
             <button
-              onClick={() => {
-                setActiveTab("award");
-                setSelectedSkill("All Skills");
-              }}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+              onClick={() => setActiveTab("award")}
+              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer ${
                 activeTab === "award"
-                  ? "bg-yellow-500 text-black shadow-lg shadow-yellow-500/25 scale-105"
-                  : "bg-card/70 text-text-muted hover:text-text hover:bg-card border border-border/50"
+                  ? "bg-amber-600 text-white font-semibold shadow-md shadow-amber-600/20 scale-105"
+                  : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200 shadow-sm font-medium"
               }`}
             >
-              <Trophy size={15} className={activeTab === "award" ? "text-black" : "text-yellow-400"} />
+              <Trophy size={15} className={activeTab === "award" ? "text-white" : "text-amber-600"} />
               Honors & Awards ({awardsCount})
             </button>
             <button
-              onClick={() => {
-                setActiveTab("certification");
-                setSelectedSkill("All Skills");
-              }}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+              onClick={() => setActiveTab("certification")}
+              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer ${
                 activeTab === "certification"
-                  ? "bg-accent text-black shadow-lg shadow-accent/25 scale-105"
-                  : "bg-card/70 text-text-muted hover:text-text hover:bg-card border border-border/50"
+                  ? "bg-teal-600 text-white font-semibold shadow-md shadow-teal-600/20 scale-105"
+                  : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200 shadow-sm font-medium"
               }`}
             >
-              <ShieldCheck size={15} className={activeTab === "certification" ? "text-black" : "text-accent"} />
+              <ShieldCheck size={15} className={activeTab === "certification" ? "text-white" : "text-teal-600"} />
               Professional Certifications ({certsCount})
             </button>
-          </div>
-        </ScrollReveal>
-
-        {/* Skill Filter Pills */}
-        <ScrollReveal delay={0.15}>
-          <div className="flex items-center justify-center flex-wrap gap-2 mb-12 max-w-4xl mx-auto px-2">
-            <span className="text-xs text-text-muted flex items-center gap-1.5 mr-2 font-medium">
-              <Filter size={13} className="text-primary" /> Filter by topic:
-            </span>
-            {filterSkills.map((skill) => (
-              <button
-                key={skill}
-                onClick={() => setSelectedSkill(skill)}
-                className={`text-xs px-3.5 py-1.5 rounded-lg transition-all font-medium ${
-                  selectedSkill === skill
-                    ? "bg-primary/20 text-primary border border-primary/40 shadow-sm"
-                    : "bg-card/40 text-text-muted hover:text-text hover:bg-card/80 border border-border/30"
-                }`}
-              >
-                {skill}
-              </button>
-            ))}
           </div>
         </ScrollReveal>
 
@@ -131,25 +89,25 @@ export default function Certifications() {
               href={`${personalInfo.linkedin}/details/certifications/`}
               target="_blank"
               rel="noopener noreferrer"
-              className="block glass p-5 sm:p-6 rounded-2xl border border-primary/30 hover:border-primary/60 transition-all group shadow-lg hover:shadow-primary/10 relative overflow-hidden"
+              className="block bg-white border-2 border-blue-600 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-xl hover:border-blue-700 transition-all group relative overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent/5 to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-50/80 via-teal-50/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
                 <div className="flex items-center gap-4 text-center sm:text-left">
-                  <div className="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400 shrink-0 mx-auto sm:mx-0 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-xl bg-blue-600 border border-blue-700 flex items-center justify-center text-white shrink-0 mx-auto sm:mx-0 group-hover:scale-110 transition-transform shadow-sm">
                     <LinkedinIcon width={24} height={24} />
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-text flex items-center justify-center sm:justify-start gap-2 group-hover:text-primary transition-colors">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center justify-center sm:justify-start gap-2 group-hover:text-primary transition-colors font-heading">
                       Verified LinkedIn Credentials & Licenses
                       <ExternalLink size={15} className="text-primary opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </h3>
-                    <p className="text-xs sm:text-sm text-text-muted">
-                      Click to inspect all official verified certificates, course credentials, and badges live on my LinkedIn profile.
+                    <p className="text-xs sm:text-sm text-slate-600 font-normal">
+                      Click to inspect all official verified certificates, course credentials, and digital badges live on my LinkedIn profile.
                     </p>
                   </div>
                 </div>
-                <span className="px-4 py-2 rounded-full text-xs font-semibold bg-blue-600 text-white shrink-0 shadow-md group-hover:bg-blue-500 transition-colors">
+                <span className="px-4 py-2 rounded-full text-xs font-semibold bg-primary text-white shrink-0 shadow-md group-hover:bg-primary-dark transition-colors">
                   View on LinkedIn ↗
                 </span>
               </div>
@@ -158,7 +116,7 @@ export default function Certifications() {
         </ScrollReveal>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredItems.map((item, index) => {
             const isAward = item.category === "award";
 
@@ -168,11 +126,11 @@ export default function Certifications() {
                 variant="fade-up"
                 delay={index * 0.08}
               >
-                <GlassCard className="h-full flex flex-col justify-between p-6 sm:p-7 relative overflow-hidden group">
+                <div className="bg-white border border-slate-200 shadow-sm rounded-xl h-full flex flex-col justify-between p-6 sm:p-7 relative overflow-hidden group hover:border-blue-400 hover:shadow-md transition-all duration-300">
                   {/* Decorative background glow */}
                   <div
                     className={`absolute -right-12 -top-12 w-32 h-32 rounded-full blur-2xl opacity-10 transition-opacity group-hover:opacity-25 pointer-events-none ${
-                      isAward ? "bg-yellow-400" : "bg-primary"
+                      isAward ? "bg-amber-400" : "bg-primary"
                     }`}
                   />
 
@@ -180,16 +138,16 @@ export default function Certifications() {
                     {/* Header: Icon, Status Badge & Date */}
                     <div className="flex items-start justify-between gap-3 mb-4">
                       <div
-                        className={`w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md ${
+                        className={`w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm border ${
                           isAward
-                            ? "bg-gradient-to-br from-yellow-500/20 to-amber-500/10 border border-yellow-500/30"
-                            : "bg-gradient-to-br from-primary/20 to-accent/10 border border-primary/30"
+                            ? "bg-amber-50 border-amber-200"
+                            : "bg-blue-50 border-blue-200"
                         }`}
                       >
                         {isAward ? (
-                          <Trophy size={22} className="text-yellow-400" />
+                          <Trophy size={22} className="text-amber-600" />
                         ) : (
-                          <ShieldCheck size={22} className="text-accent" />
+                          <ShieldCheck size={22} className="text-primary" />
                         )}
                       </div>
 
@@ -198,10 +156,10 @@ export default function Certifications() {
                           <span
                             className={`px-2.5 py-1 rounded-full text-[11px] font-semibold flex items-center gap-1.5 border ${
                               item.status === "Honored"
-                                ? "bg-yellow-400/10 text-yellow-400 border-yellow-400/20"
+                                ? "bg-amber-50 text-amber-700 border-amber-200"
                                 : item.status === "Completed"
-                                ? "bg-success/10 text-success border-success/20"
-                                : "bg-primary/10 text-primary border-primary/20"
+                                ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                                : "bg-blue-50 text-blue-700 border-blue-200"
                             }`}
                           >
                             {item.status === "Honored" ? (
@@ -215,7 +173,7 @@ export default function Certifications() {
                           </span>
                         )}
                         {item.date && (
-                          <span className="text-xs text-text-muted font-medium">
+                          <span className="text-xs text-slate-500 font-semibold font-mono">
                             {item.date}
                           </span>
                         )}
@@ -223,16 +181,16 @@ export default function Certifications() {
                     </div>
 
                     {/* Title & Issuer */}
-                    <h3 className="text-base sm:text-lg font-bold text-text mb-1 group-hover:text-primary transition-colors">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors font-heading">
                       {item.name}
                     </h3>
-                    <p className="text-xs sm:text-sm text-primary font-medium mb-3">
+                    <p className="text-xs sm:text-sm text-primary font-semibold mb-3">
                       {item.issuer}
                     </p>
 
                     {/* Description */}
                     {item.description && (
-                      <p className="text-xs sm:text-sm text-text-muted leading-relaxed mb-6">
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
                         {item.description}
                       </p>
                     )}
@@ -241,12 +199,9 @@ export default function Certifications() {
                   {/* Skills / Tech Covered & Links */}
                   <div>
                     {item.skills && item.skills.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5 mb-5 pt-4 border-t border-border/40">
+                      <div className="flex flex-wrap gap-1.5 mb-5 pt-4 border-t border-slate-200">
                         {item.skills.map((skill) => (
-                          <Badge
-                            key={skill}
-                            variant={selectedSkill === skill ? "gradient" : "default"}
-                          >
+                          <Badge key={skill} variant="default">
                             {skill}
                           </Badge>
                         ))}
@@ -254,34 +209,23 @@ export default function Certifications() {
                     )}
 
                     <div className="flex items-center justify-between pt-2">
-                      <span className="text-[11px] font-medium uppercase tracking-wider text-text-muted/80">
+                      <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 font-mono">
                         {isAward ? "National / University Honor" : "Industry Credential"}
                       </span>
 
-                      {isAward ? (
-                        <a
-                          href="#projects"
-                          className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:text-accent transition-colors"
-                        >
-                          View Related Project <ExternalLink size={12} />
-                        </a>
-                      ) : item.link ? (
+                      {item.link && (
                         <a
                           href={item.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:text-accent transition-colors"
+                          className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:text-accent transition-colors"
                         >
                           Verify Credential <ExternalLink size={12} />
                         </a>
-                      ) : (
-                        <span className="text-xs text-text-muted italic">
-                          Preparation in progress
-                        </span>
                       )}
                     </div>
                   </div>
-                </GlassCard>
+                </div>
               </ScrollReveal>
             );
           })}
@@ -291,18 +235,15 @@ export default function Certifications() {
         {filteredItems.length === 0 && (
           <ScrollReveal>
             <GlassCard className="p-12 text-center max-w-md mx-auto">
-              <Award className="w-12 h-12 text-text-muted mx-auto mb-3 opacity-50" />
-              <h4 className="text-base font-semibold text-text mb-1">No matches found</h4>
-              <p className="text-xs text-text-muted mb-4">
-                No achievements found matching the &quot;{selectedSkill}&quot; filter under &quot;
+              <Award className="w-12 h-12 text-slate-400 mx-auto mb-3 opacity-50" />
+              <h4 className="text-base font-bold text-slate-900 mb-1 font-heading">No matches found</h4>
+              <p className="text-xs text-slate-600 mb-4">
+                No achievements found under &quot;
                 {activeTab === "all" ? "All" : activeTab === "award" ? "Honors & Awards" : "Certifications"}&quot;.
               </p>
               <button
-                onClick={() => {
-                  setActiveTab("all");
-                  setSelectedSkill("All Skills");
-                }}
-                className="text-xs font-semibold px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors"
+                onClick={() => setActiveTab("all")}
+                className="text-xs font-semibold px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors cursor-pointer shadow-sm"
               >
                 Reset Filters
               </button>

@@ -1,4 +1,5 @@
-import { Mail, Heart } from "lucide-react";
+import { Mail } from "lucide-react";
+import Image from "next/image";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import { personalInfo } from "@/lib/data";
 
@@ -20,17 +21,21 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand */}
           <div className="flex flex-col items-center md:items-start gap-2">
-            <span className="text-lg font-bold gradient-text-blue">
-              {personalInfo.name.split(" ")[0]}
-              <span className="text-text-muted font-light">.dev</span>
-            </span>
-            <p className="text-text-muted text-sm">
-              Building the future, one line of code at a time.
-            </p>
+            <div className="flex items-center">
+              <div className="w-10 h-10 rounded-full overflow-hidden border border-slate-200 shadow-sm flex items-center justify-center bg-white shrink-0">
+                <Image
+                  src="/images/lmo1.jpeg"
+                  alt="Lin Myat Oo"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             {socialLinks.map(({ icon: Icon, href, label, isCustom }) => (
               <a
                 key={label}
@@ -42,7 +47,7 @@ export default function Footer() {
                     : undefined
                 }
                 aria-label={label}
-                className="p-2.5 rounded-xl glass text-text-muted hover:text-primary hover:border-primary/30 transition-all duration-200"
+                className="p-2.5 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-primary hover:border-primary shadow-sm transition-all duration-200"
               >
                 {isCustom ? <Icon width={18} height={18} /> : <Icon size={18} />}
               </a>
@@ -51,12 +56,8 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="text-text-muted text-sm text-center md:text-right">
-            <p className="flex items-center gap-1">
+            <p>
               © {currentYear} {personalInfo.name}. All rights reserved.
-            </p>
-            <p className="flex items-center gap-1 mt-1 text-xs">
-              Built with <Heart size={12} className="text-red-500" /> using
-              Next.js + Tailwind CSS
             </p>
           </div>
         </div>

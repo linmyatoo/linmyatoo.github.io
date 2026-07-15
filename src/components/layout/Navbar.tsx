@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { navItems, personalInfo } from "@/lib/data";
 import { cn } from "@/lib/utils";
@@ -57,11 +58,11 @@ export default function Navbar() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled ? "glass-strong shadow-lg" : "bg-transparent"
+          isScrolled ? "glass-strong shadow-sm shadow-slate-900/5 border-b border-slate-200/80" : "bg-transparent"
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-18">
             {/* Logo */}
             <a
               href="#home"
@@ -69,14 +70,22 @@ export default function Navbar() {
                 e.preventDefault();
                 handleNavClick("#home");
               }}
-              className="text-lg font-bold gradient-text-blue cursor-pointer"
+              className="group cursor-pointer block"
+              aria-label="Home"
             >
-              {personalInfo.name.split(" ")[0]}
-              <span className="text-text-muted font-light">.dev</span>
+              <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20 shadow-sm group-hover:border-primary group-hover:scale-105 transition-all flex items-center justify-center bg-white shrink-0">
+                <Image
+                  src="/images/lmo1.jpeg"
+                  alt="Lin Myat Oo"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </a>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="hidden md:flex items-center gap-1 p-1.5 rounded-2xl bg-white/80 border border-slate-200 shadow-sm backdrop-blur-md">
               {navItems.map(({ label, href }) => {
                 const sectionId = href.replace("#", "");
                 const isActive = activeSection === sectionId;
@@ -89,10 +98,10 @@ export default function Navbar() {
                       handleNavClick(href);
                     }}
                     className={cn(
-                      "px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200",
+                      "px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 relative",
                       isActive
-                        ? "text-primary bg-primary/10"
-                        : "text-text-muted hover:text-text hover:bg-card/50"
+                        ? "text-white bg-primary shadow-sm shadow-primary/25"
+                        : "text-text-muted hover:text-text hover:bg-slate-100/80"
                     )}
                   >
                     {label}
@@ -134,7 +143,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="absolute right-0 top-0 h-full w-72 glass-strong p-6 pt-20"
+              className="absolute right-0 top-0 h-full w-72 bg-white/95 backdrop-blur-xl border-l border-slate-200 p-6 pt-20 shadow-2xl"
             >
               <div className="flex flex-col gap-2">
                 {navItems.map(({ label, href }) => {
@@ -149,10 +158,10 @@ export default function Navbar() {
                         handleNavClick(href);
                       }}
                       className={cn(
-                        "px-4 py-3 rounded-xl text-base font-medium transition-all duration-200",
+                        "px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200",
                         isActive
-                          ? "text-primary bg-primary/10"
-                          : "text-text-muted hover:text-text hover:bg-card/50"
+                          ? "text-white bg-primary shadow-sm shadow-primary/20"
+                          : "text-text-muted hover:text-text hover:bg-slate-100"
                       )}
                     >
                       {label}

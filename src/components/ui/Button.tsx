@@ -26,21 +26,21 @@ export default function Button({
 }: ButtonProps) {
   const variants = {
     primary:
-      "bg-gradient-to-r from-primary to-blue-500 text-white hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:scale-[1.02]",
+      "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md hover:shadow-lg hover:shadow-blue-600/20 hover:scale-[1.02] font-semibold",
     outline:
-      "bg-transparent text-text border border-border hover:border-primary/50 hover:text-primary hover:bg-primary/5",
+      "bg-white/80 text-slate-800 border border-slate-300 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50/50 shadow-sm font-semibold",
     ghost:
-      "bg-transparent text-text-muted hover:text-text hover:bg-card",
+      "bg-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-medium",
   };
 
   const sizes = {
-    sm: "px-4 py-2 text-sm",
+    sm: "px-4 py-2 text-xs",
     md: "px-6 py-2.5 text-sm",
     lg: "px-8 py-3 text-base",
   };
 
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-300 cursor-pointer",
+    "inline-flex items-center justify-center gap-2 rounded-xl transition-all duration-300 cursor-pointer",
     variants[variant],
     sizes[size],
     className

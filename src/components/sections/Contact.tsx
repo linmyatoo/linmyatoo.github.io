@@ -9,7 +9,6 @@ import {
   Send,
   CheckCircle2,
   Sparkles,
-  ArrowUpRight,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -97,76 +96,43 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 relative">
+    <section id="contact" className="py-24 relative overflow-hidden">
+      {/* Decorative eye-catching mesh & circuit overlay */}
+      <div className="absolute inset-0 -z-10 overflow-hidden bg-gradient-to-t from-blue-50/60 via-white to-transparent">
+        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-blue-500/12 to-indigo-500/8 blur-[120px] animate-gradient-shift" />
+        <div className="absolute bottom-1/3 right-1/4 w-[450px] h-[450px] rounded-full bg-gradient-to-tl from-teal-500/12 to-emerald-500/8 blur-[100px] animate-gradient-shift-reverse" />
+        <div className="absolute inset-0 circuit-pattern opacity-50 pointer-events-none" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <SectionHeading
             title="Get In Touch"
-            subtitle="Let's build intelligent robotics, AI pipelines, or modern web applications together"
+            subtitle="Let's collaborate on intelligent AI pipelines, DevOps platforms, robotics systems, or software engineering roles"
           />
         </ScrollReveal>
 
-        {/* Quick Connect Action Bar */}
-        <ScrollReveal delay={0.1}>
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-12 max-w-4xl mx-auto">
-            <a
-              href={`mailto:${personalInfo.email}`}
-              className="px-5 py-3 rounded-2xl glass border border-primary/40 hover:border-primary text-text hover:text-primary transition-all flex items-center gap-2.5 text-xs sm:text-sm font-semibold shadow-md hover:shadow-primary/15 group scale-100 hover:scale-105"
-            >
-              <div className="w-7 h-7 rounded-lg bg-primary/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                <Mail size={15} />
-              </div>
-              <span>Email Directly</span>
-              <ArrowUpRight size={14} className="text-primary opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
-
-            <a
-              href={personalInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-3 rounded-2xl glass border border-blue-500/40 hover:border-blue-500 text-text hover:text-blue-400 transition-all flex items-center gap-2.5 text-xs sm:text-sm font-semibold shadow-md hover:shadow-blue-500/15 group scale-100 hover:scale-105"
-            >
-              <div className="w-7 h-7 rounded-lg bg-blue-600/20 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
-                <LinkedinIcon width={15} height={15} />
-              </div>
-              <span>Message on LinkedIn</span>
-              <ArrowUpRight size={14} className="text-blue-400 opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
-
-            <a
-              href={`tel:${personalInfo.phone}`}
-              className="px-5 py-3 rounded-2xl glass border border-success/40 hover:border-success text-text hover:text-success transition-all flex items-center gap-2.5 text-xs sm:text-sm font-semibold shadow-md hover:shadow-success/15 group scale-100 hover:scale-105"
-            >
-              <div className="w-7 h-7 rounded-lg bg-success/20 flex items-center justify-center text-success group-hover:scale-110 transition-transform">
-                <Phone size={15} />
-              </div>
-              <span>Call / Phone</span>
-              <ArrowUpRight size={14} className="text-success opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
-          </div>
-        </ScrollReveal>
-
-        <div className="grid md:grid-cols-12 gap-8 max-w-5xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto items-stretch">
           {/* Contact Information */}
-          <ScrollReveal variant="slide-left" delay={0.15} className="md:col-span-5 flex">
-            <GlassCard className="h-full w-full flex flex-col justify-between border border-border/60 p-6 sm:p-8 relative overflow-hidden shadow-xl">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10" />
+          <ScrollReveal variant="slide-left" delay={0.15} className="lg:col-span-5 flex">
+            <div className="bg-white border border-slate-200 shadow-sm rounded-2xl h-full w-full flex flex-col justify-between p-6 sm:p-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -z-10" />
 
               <div>
-                <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider mb-2">
+                <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider mb-2 font-mono">
                   <Sparkles size={14} /> Contact Information
                 </div>
-                <h3 className="text-2xl font-extrabold text-text mb-3">
+                <h3 className="text-2xl font-extrabold text-slate-900 mb-3 font-heading">
                   Let&apos;s Connect
                 </h3>
-                <p className="text-xs sm:text-sm text-text-muted leading-relaxed mb-8">
-                  I am open to engineering roles, AI research collaborations, and freelance opportunities.
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-8">
+                  I am open to software engineering roles, DevOps projects, AI/ML research collaborations, and consulting opportunities.
                 </p>
 
                 <div className="space-y-4 mb-8">
                   {contactLinks.map(({ icon: Icon, label, value, href, isCustom }) => (
-                    <div key={label} className="flex items-center gap-4 p-3.5 rounded-xl bg-card/60 border border-border/40 hover:border-primary/40 transition-all">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/30 flex items-center justify-center flex-shrink-0 shadow-inner">
+                    <div key={label} className="flex items-center gap-4 p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-400 transition-all">
+                      <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center flex-shrink-0 shadow-sm">
                         {isCustom ? (
                           <Icon width={18} height={18} className="text-primary" />
                         ) : (
@@ -174,18 +140,18 @@ export default function Contact() {
                         )}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-xs font-medium text-text-muted">{label}</p>
+                        <p className="text-xs font-semibold text-slate-500">{label}</p>
                         {href ? (
                           <a
                             href={href}
                             target={href.startsWith("http") ? "_blank" : undefined}
                             rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                            className="text-sm font-semibold text-text hover:text-primary transition-colors truncate block"
+                            className="text-sm font-bold text-slate-900 hover:text-primary transition-colors truncate block"
                           >
                             {value}
                           </a>
                         ) : (
-                          <p className="text-sm font-semibold text-text truncate">{value}</p>
+                          <p className="text-sm font-bold text-slate-900 truncate">{value}</p>
                         )}
                       </div>
                     </div>
@@ -199,34 +165,34 @@ export default function Contact() {
                   download="LinMyatOo_Resume"
                   variant="outline"
                   icon={<Download size={16} />}
-                  className="w-full border-primary/40 hover:border-primary shadow-sm"
+                  className="w-full border-blue-200 hover:border-primary shadow-sm"
                 >
                   Download Resume (.PDF)
                 </Button>
               </div>
-            </GlassCard>
+            </div>
           </ScrollReveal>
 
           {/* Simple Contact Form */}
-          <ScrollReveal variant="slide-right" delay={0.2} className="md:col-span-7 flex">
-            <GlassCard className="h-full w-full flex flex-col justify-between border border-border/60 p-6 sm:p-8 md:p-10 relative overflow-hidden shadow-xl">
-              <div className="absolute bottom-0 right-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl -z-10" />
+          <ScrollReveal variant="slide-right" delay={0.2} className="lg:col-span-7 flex">
+            <div className="bg-white border border-slate-200 shadow-sm rounded-2xl h-full w-full flex flex-col justify-between p-6 sm:p-8 md:p-10 relative overflow-hidden">
+              <div className="absolute bottom-0 right-0 w-72 h-72 bg-teal-500/5 rounded-full blur-3xl -z-10" />
 
               <div>
-                <h3 className="text-2xl font-extrabold text-text mb-2">
+                <h3 className="text-2xl font-extrabold text-slate-900 mb-2 font-heading">
                   Send a Message
                 </h3>
-                <p className="text-xs sm:text-sm text-text-muted mb-6 leading-relaxed">
-                  Have a question or proposal? Fill out the simple form below.
+                <p className="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
+                  Have a technical question or job inquiry? Fill out the form below to connect instantly.
                 </p>
 
                 {submitted ? (
-                  <div className="py-12 px-6 rounded-2xl bg-card/90 border border-border/80 text-center space-y-5 my-auto animate-in fade-in zoom-in-95 duration-300">
-                    <CheckCircle2 size={44} className="text-success mx-auto" />
-                    <h4 className="text-xl font-bold text-text">
+                  <div className="py-12 px-6 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-5 my-auto animate-in fade-in zoom-in-95 duration-300">
+                    <CheckCircle2 size={44} className="text-emerald-600 mx-auto" />
+                    <h4 className="text-xl font-bold text-slate-900 font-heading">
                       Message Formatted & Opened!
                     </h4>
-                    <p className="text-xs sm:text-sm text-text-muted max-w-md mx-auto leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed font-medium">
                       Your default email client has been opened. Simply hit send to deliver your message to <strong className="text-primary">{personalInfo.email}</strong>.
                     </p>
                     <div className="pt-2">
@@ -248,7 +214,7 @@ export default function Contact() {
                       <div>
                         <label
                           htmlFor="contact-name"
-                          className="block text-xs font-semibold text-text-muted mb-1.5"
+                          className="block text-xs font-bold text-slate-700 mb-1.5"
                         >
                           Name
                         </label>
@@ -258,7 +224,7 @@ export default function Contact() {
                           value={formData.name}
                           onChange={handleInputChange}
                           required
-                          className="w-full px-4 py-3 rounded-xl bg-card/80 border border-border text-text text-sm placeholder:text-text-muted/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all font-medium"
+                          className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition-all font-medium"
                           placeholder="Your name"
                         />
                       </div>
@@ -266,7 +232,7 @@ export default function Contact() {
                       <div>
                         <label
                           htmlFor="contact-email"
-                          className="block text-xs font-semibold text-text-muted mb-1.5"
+                          className="block text-xs font-bold text-slate-700 mb-1.5"
                         >
                           Email
                         </label>
@@ -276,7 +242,7 @@ export default function Contact() {
                           value={formData.email}
                           onChange={handleInputChange}
                           required
-                          className="w-full px-4 py-3 rounded-xl bg-card/80 border border-border text-text text-sm placeholder:text-text-muted/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all font-medium"
+                          className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition-all font-medium"
                           placeholder="your@email.com"
                         />
                       </div>
@@ -285,7 +251,7 @@ export default function Contact() {
                     <div>
                       <label
                         htmlFor="contact-subject"
-                        className="block text-xs font-semibold text-text-muted mb-1.5"
+                        className="block text-xs font-bold text-slate-700 mb-1.5"
                       >
                         Subject
                       </label>
@@ -295,7 +261,7 @@ export default function Contact() {
                         value={formData.subject}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-xl bg-card/80 border border-border text-text text-sm placeholder:text-text-muted/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all font-medium"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition-all font-medium"
                         placeholder="Subject"
                       />
                     </div>
@@ -303,7 +269,7 @@ export default function Contact() {
                     <div>
                       <label
                         htmlFor="contact-message"
-                        className="block text-xs font-semibold text-text-muted mb-1.5"
+                        className="block text-xs font-bold text-slate-700 mb-1.5"
                       >
                         Message
                       </label>
@@ -313,7 +279,7 @@ export default function Contact() {
                         onChange={handleInputChange}
                         required
                         rows={4}
-                        className="w-full px-4 py-3 rounded-xl bg-card/80 border border-border text-text text-sm placeholder:text-text-muted/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all resize-none font-medium leading-relaxed"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition-all resize-none font-medium leading-relaxed"
                         placeholder="Your message..."
                       />
                     </div>
@@ -331,7 +297,7 @@ export default function Contact() {
                   </form>
                 )}
               </div>
-            </GlassCard>
+            </div>
           </ScrollReveal>
         </div>
       </div>
