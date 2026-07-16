@@ -120,7 +120,7 @@ export default function Contact() {
 
               <div>
                 <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider mb-2 font-mono">
-                  <Sparkles size={14} /> Contact Information
+                  Contact Information
                 </div>
                 <h3 className="text-2xl font-extrabold text-slate-900 mb-3 font-heading">
                   Let&apos;s Connect
