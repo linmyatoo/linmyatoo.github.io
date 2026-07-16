@@ -5,9 +5,10 @@ import { useState, useEffect, useRef, type ReactNode } from "react";
 interface LazySectionWrapperProps {
   children: ReactNode;
   height?: string;
+  id?: string;
 }
 
-export default function LazySectionWrapper({ children, height = "100vh" }: LazySectionWrapperProps) {
+export default function LazySectionWrapper({ children, height = "100vh", id }: LazySectionWrapperProps) {
   const [hasRendered, setHasRendered] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -36,7 +37,7 @@ export default function LazySectionWrapper({ children, height = "100vh" }: LazyS
   // Before rendering, keep a placeholder with the expected height
   // to avoid huge layout shifts when it loads.
   if (!hasRendered) {
-    return <div ref={ref} style={{ minHeight: height }} />;
+    return <div ref={ref} id={id} style={{ minHeight: height }} />;
   }
 
   return <div ref={ref}>{children}</div>;

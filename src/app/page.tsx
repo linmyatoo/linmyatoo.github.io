@@ -20,12 +20,12 @@ export default function Home() {
       <main>
         <Hero />
         
-        <LazySectionWrapper height="80vh">
+        <LazySectionWrapper height="80vh" id="about">
           <div className="section-divider" />
           <About />
         </LazySectionWrapper>
         
-        <LazySectionWrapper height="60vh">
+        <LazySectionWrapper height="60vh" id="skills">
           <div className="section-divider" />
           <TechStack />
         </LazySectionWrapper>
@@ -35,22 +35,22 @@ export default function Home() {
           <Skills />
         </LazySectionWrapper>
         
-        <LazySectionWrapper height="100vh">
+        <LazySectionWrapper height="100vh" id="projects">
           <div className="section-divider" />
           <Projects />
         </LazySectionWrapper>
         
-        <LazySectionWrapper height="80vh">
+        <LazySectionWrapper height="80vh" id="experience">
           <div className="section-divider" />
           <Experience />
         </LazySectionWrapper>
         
-        <LazySectionWrapper height="100vh">
+        <LazySectionWrapper height="100vh" id="certifications">
           <div className="section-divider" />
           <Certifications />
         </LazySectionWrapper>
         
-        <LazySectionWrapper height="80vh">
+        <LazySectionWrapper height="80vh" id="contact">
           <div className="section-divider" />
           {/* <Blog />
           <div className="section-divider" /> */}
