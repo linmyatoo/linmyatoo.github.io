@@ -92,7 +92,6 @@ export default function Experience() {
                       {exp.achievements && exp.achievements.length > 0 && (
                         <div className="pt-3 border-t border-slate-200">
                           <span className="text-xs font-bold text-slate-800 mb-2.5 flex items-center gap-1.5">
-                            <Award size={14} className="text-accent" />
                             Key Achievements & Honors
                           </span>
                           <ul className="space-y-2 mb-3">

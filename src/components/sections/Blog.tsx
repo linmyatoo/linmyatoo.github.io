@@ -180,7 +180,7 @@ export default function Blog() {
                 <div className="w-full lg:w-80 shrink-0 bg-slate-50 rounded-2xl border border-slate-200 p-6 flex flex-col justify-between self-stretch shadow-sm">
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-3 flex items-center gap-1.5 font-heading">
-                      <BookOpen size={14} className="text-accent" /> Key Architectural Highlights
+                      Key Architectural Highlights
                     </h4>
                     <ul className="space-y-3">
                       {filteredPosts[0].takeaways?.map((takeaway, idx) => (

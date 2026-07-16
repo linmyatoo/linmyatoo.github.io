@@ -56,9 +56,8 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="text-text-muted text-sm text-center md:text-right">
-            <p>
-              © {currentYear} {personalInfo.name}. All rights reserved.
-            </p>
+            <p>© {currentYear} {personalInfo.name}.</p>
+            <p>All rights reserved.</p>
           </div>
         </div>
       </div>
