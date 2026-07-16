@@ -25,7 +25,7 @@ export const personalInfo = {
   dob: "23 July, 1999",
   github: "https://github.com/linmyatoo",
   linkedin: "https://www.linkedin.com/in/lin-myat-oo-1364b6255",
-  resumeUrl: "/pdf/lmocv.pdf",
+  resumeUrl: "/pdf/lmoresume.pdf",
   profileImage: "/images/profile.webp",
   bio: `I'm a passionate Software Engineer with a deep interest in Artificial Intelligence, 
 Machine Learning, and building scalable backend systems. With a strong foundation in 
