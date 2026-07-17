@@ -39,6 +39,7 @@ export interface Certification {
   issuer: string;
   date?: string;
   link?: string;
+  image?: string;
   placeholder?: boolean;
   category?: "certification" | "award";
   description?: string;

@@ -475,7 +475,55 @@ export const certifications: Certification[] = [
     placeholder: false,
   },
 
-  // Professional Certifications
+  // Professional Certifications — Completed
+  {
+    name: "Introduction to DevOps",
+    issuer: "IBM (Coursera)",
+    date: "2025",
+    category: "certification",
+    status: "Completed",
+    description: "Comprehensive overview of DevOps culture, practices, tools, and technologies including CI/CD pipelines, microservices, and cloud-native development.",
+    skills: ["DevOps", "CI/CD", "Agile", "Cloud Native", "Microservices"],
+    link: "https://coursera.org/share/6397527f6266ac4bd301b563b723fc0e",
+    image: "/images/certs/intro-devops.jpeg",
+    placeholder: false,
+  },
+  {
+    name: "LFS101: Introduction to Linux",
+    issuer: "The Linux Foundation (Credly)",
+    date: "2025",
+    category: "certification",
+    status: "Completed",
+    description: "Proficiency in navigating and managing Linux distributions, command-line operations, file systems, network management, and basic scripting with local security principles.",
+    skills: ["Linux", "Bash", "System Administration", "Networking", "Scripting"],
+    link: "https://www.credly.com/badges/eda96869-5718-47f7-bdbc-f713cab5db32/linked_in_profile",
+    image: "/images/certs/lfs101-linux.png",
+    placeholder: false,
+  },
+  {
+    name: "DeepLearning.AI TensorFlow Developer Specialization",
+    issuer: "DeepLearning.AI (Coursera)",
+    date: "2025",
+    category: "certification",
+    status: "Completed",
+    description: "Multi-course specialization covering building deep neural networks, computer vision, NLP, and time-series forecasting using TensorFlow.",
+    skills: ["TensorFlow", "Deep Learning", "Computer Vision", "NLP", "Neural Networks"],
+    link: "https://www.coursera.org/account/accomplishments/specialization/II7FTYI4QQKS",
+    placeholder: false,
+  },
+  {
+    name: "Convolutional Neural Networks in TensorFlow",
+    issuer: "DeepLearning.AI (Coursera)",
+    date: "2025",
+    category: "certification",
+    status: "Completed",
+    description: "Advanced techniques for image classification including data augmentation, dropout strategies, and transfer learning using TensorFlow and Keras.",
+    skills: ["CNN", "TensorFlow", "Transfer Learning", "Image Classification", "Keras"],
+    link: "https://www.coursera.org/account/accomplishments/records/C1RO2QGZ0OC5",
+    placeholder: false,
+  },
+
+  // Professional Certifications — In Progress
   {
     name: "AWS Certified Cloud Practitioner",
     issuer: "Amazon Web Services (AWS)",

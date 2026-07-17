@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Image from "next/image";
 import { ShieldCheck, Trophy, ExternalLink, Award, Sparkles, CheckCircle2, Clock } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import GlassCard from "@/components/ui/GlassCard";
@@ -126,7 +127,21 @@ export default function Certifications() {
                 variant="fade-up"
                 delay={index * 0.08}
               >
-                <div className="bg-white border border-slate-200 shadow-sm rounded-xl h-full flex flex-col justify-between p-6 sm:p-7 relative overflow-hidden group hover:border-blue-400 hover:shadow-md transition-all duration-300">
+                <div className="bg-white border border-slate-200 shadow-sm rounded-xl h-full flex flex-col justify-between relative overflow-hidden group hover:border-blue-400 hover:shadow-md transition-all duration-300">
+                  {/* Certificate Image */}
+                  {item.image && (
+                    <div className="relative h-44 overflow-hidden border-b border-slate-200">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  )}
+
                   {/* Decorative background glow */}
                   <div
                     className={`absolute -right-12 -top-12 w-32 h-32 rounded-full blur-2xl opacity-10 transition-opacity group-hover:opacity-25 pointer-events-none ${
@@ -134,7 +149,7 @@ export default function Certifications() {
                     }`}
                   />
 
-                  <div>
+                  <div className="p-6 sm:p-7">
                     {/* Header: Icon, Status Badge & Date */}
                     <div className="flex items-start justify-between gap-3 mb-4">
                       <div
@@ -197,7 +212,7 @@ export default function Certifications() {
                   </div>
 
                   {/* Skills / Tech Covered & Links */}
-                  <div>
+                  <div className="px-6 sm:px-7 pb-6 sm:pb-7">
                     {item.skills && item.skills.length > 0 && (
                       <div className="flex flex-wrap gap-1.5 mb-5 pt-4 border-t border-slate-200">
                         {item.skills.map((skill) => (
