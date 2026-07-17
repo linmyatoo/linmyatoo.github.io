@@ -509,6 +509,7 @@ export const certifications: Certification[] = [
     description: "Multi-course specialization covering building deep neural networks, computer vision, NLP, and time-series forecasting using TensorFlow.",
     skills: ["TensorFlow", "Deep Learning", "Computer Vision", "NLP", "Neural Networks"],
     link: "https://www.coursera.org/account/accomplishments/specialization/II7FTYI4QQKS",
+    image: "/images/certs/tf-specialization.jpeg",
     placeholder: false,
   },
   {
@@ -520,6 +521,7 @@ export const certifications: Certification[] = [
     description: "Advanced techniques for image classification including data augmentation, dropout strategies, and transfer learning using TensorFlow and Keras.",
     skills: ["CNN", "TensorFlow", "Transfer Learning", "Image Classification", "Keras"],
     link: "https://www.coursera.org/account/accomplishments/records/C1RO2QGZ0OC5",
+    image: "/images/certs/cnn-tf.jpeg",
     placeholder: false,
   },
 
