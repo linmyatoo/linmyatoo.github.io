@@ -83,38 +83,7 @@ export default function Certifications() {
           </div>
         </ScrollReveal>
 
-        {/* LinkedIn Verified Credentials Banner */}
-        <ScrollReveal delay={0.2}>
-          <div className="mb-12 max-w-3xl mx-auto">
-            <a
-              href={`${personalInfo.linkedin}/details/certifications/`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block bg-white border-2 border-blue-600 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-xl hover:border-blue-700 transition-all group relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-50/80 via-teal-50/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
-                <div className="flex items-center gap-4 text-center sm:text-left">
-                  <div className="w-12 h-12 rounded-xl bg-blue-600 border border-blue-700 flex items-center justify-center text-white shrink-0 mx-auto sm:mx-0 group-hover:scale-110 transition-transform shadow-sm">
-                    <LinkedinIcon width={24} height={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center justify-center sm:justify-start gap-2 group-hover:text-primary transition-colors font-heading">
-                      Verified LinkedIn Credentials & Licenses
-                      <ExternalLink size={15} className="text-primary opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 font-normal">
-                      Click to inspect all official verified certificates, course credentials, and digital badges live on my LinkedIn profile.
-                    </p>
-                  </div>
-                </div>
-                <span className="px-4 py-2 rounded-full text-xs font-semibold bg-primary text-white shrink-0 shadow-md group-hover:bg-primary-dark transition-colors">
-                  View on LinkedIn ↗
-                </span>
-              </div>
-            </a>
-          </div>
-        </ScrollReveal>
+
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
